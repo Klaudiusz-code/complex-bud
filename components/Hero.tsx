@@ -1,4 +1,3 @@
-// Hero.jsx
 "use client";
 import { useState, useEffect } from "react";
 
@@ -54,7 +53,7 @@ const Hero = () => {
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tighter text-neutral-900 dark:text-white mb-6 sm:mb-8 transition-colors">
           Precyzja, która
           <br />
-          <span className="text-[#60A5FA]">przetrwa lata</span>
+          <span className="text-[#C7A568]">przetrwa lata</span>
         </h1>
 
         <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-xl mx-auto mb-10 sm:mb-14 font-light transition-colors">
@@ -65,7 +64,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <a
             href="#kontakt"
-            className="group flex items-center justify-center gap-2.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold px-8 sm:px-10 py-3.5 sm:py-4.5 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#2563EB]/15"
+            className="group flex items-center justify-center gap-2.5 bg-[#C7A568] hover:bg-[#b8964f] text-white font-semibold px-8 sm:px-10 py-3.5 sm:py-4.5 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#C7A568]/15"
           >
             Bezpłatna wycena
             <svg
@@ -96,7 +95,7 @@ const Hero = () => {
           <div className="hidden md:flex items-center gap-6 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
             <span className="flex items-center gap-2">
               <svg
-                className="w-3.5 h-3.5 text-[#2563EB]"
+                className="w-3.5 h-3.5 text-[#C7A568]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -112,7 +111,7 @@ const Hero = () => {
             </span>
             <span className="flex items-center gap-2">
               <svg
-                className="w-3.5 h-3.5 text-[#2563EB]"
+                className="w-3.5 h-3.5 text-[#C7A568]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -134,7 +133,7 @@ const Hero = () => {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`transition-all duration-500 rounded-full ${i === current ? "w-8 h-2 bg-[#60A5FA]" : "w-2 h-2 bg-neutral-300 dark:bg-white/20 hover:bg-neutral-400 dark:hover:bg-white/40"}`}
+                  className={`transition-all duration-500 rounded-full ${i === current ? "w-8 h-2 bg-[#C7A568]" : "w-2 h-2 bg-neutral-300 dark:bg-white/20 hover:bg-neutral-400 dark:hover:bg-white/40"}`}
                   aria-label={`Przejdź do slajdu ${i + 1}`}
                 />
               ))}
@@ -142,14 +141,14 @@ const Hero = () => {
             <div className="w-20 sm:w-24 h-[2px] bg-neutral-200 dark:bg-white/10 rounded-full overflow-hidden hidden sm:block">
               <div
                 key={current}
-                className="h-full bg-[#60A5FA]/80 rounded-full animate-slide-progress"
+                className="h-full bg-[#C7A568]/80 rounded-full animate-slide-progress"
               />
             </div>
           </div>
 
           <div className="hidden md:flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
             <svg
-              className="w-3.5 h-3.5 text-[#2563EB]"
+              className="w-3.5 h-3.5 text-[#C7A568]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

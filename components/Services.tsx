@@ -1,4 +1,3 @@
-// Services.jsx
 const Services = () => (
   <section
     id="oferta"
@@ -7,8 +6,8 @@ const Services = () => (
     <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
       <div className="mb-12 md:mb-20 pb-8 md:pb-12 border-b border-neutral-200 dark:border-white/[0.06]">
         <div className="flex items-center gap-4 mb-6 md:mb-8">
-          <div className="w-10 md:w-12 h-px bg-[#60A5FA]" />
-          <span className="text-[0.65rem] md:text-xs font-bold text-[#60A5FA] tracking-[0.3em] uppercase">
+          <div className="w-10 md:w-12 h-px bg-[#C7A568]" />
+          <span className="text-[0.65rem] md:text-xs font-bold text-[#C7A568] tracking-[0.3em] uppercase">
             Oferta
           </span>
         </div>
@@ -27,7 +26,7 @@ const Services = () => (
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-white/60 dark:via-black/60 to-white/30 dark:to-black/30" />
           <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-sm bg-[#60A5FA]/10 border border-[#60A5FA]/20 flex items-center justify-center text-[#60A5FA] mb-4 md:mb-6 backdrop-blur-sm">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-sm bg-[#C7A568]/10 border border-[#C7A568]/20 flex items-center justify-center text-[#C7A568] mb-4 md:mb-6 backdrop-blur-sm">
               <svg
                 className="w-4 h-4 md:w-5 md:h-5"
                 fill="none"
@@ -61,7 +60,7 @@ const Services = () => (
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-white/60 dark:via-black/60 to-white/30 dark:to-black/30" />
           <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-sm bg-[#60A5FA]/10 border border-[#60A5FA]/20 flex items-center justify-center text-[#60A5FA] mb-4 md:mb-6 backdrop-blur-sm">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-sm bg-[#C7A568]/10 border border-[#C7A568]/20 flex items-center justify-center text-[#C7A568] mb-4 md:mb-6 backdrop-blur-sm">
               <svg
                 className="w-4 h-4 md:w-5 md:h-5"
                 fill="none"
@@ -95,7 +94,7 @@ const Services = () => (
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-white/60 dark:via-black/60 to-white/30 dark:to-black/30" />
           <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-sm bg-[#60A5FA]/10 border border-[#60A5FA]/20 flex items-center justify-center text-[#60A5FA] mb-4 md:mb-6 backdrop-blur-sm">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-sm bg-[#C7A568]/10 border border-[#C7A568]/20 flex items-center justify-center text-[#C7A568] mb-4 md:mb-6 backdrop-blur-sm">
               <svg
                 className="w-4 h-4 md:w-5 md:h-5"
                 fill="none"
@@ -129,7 +128,7 @@ const Services = () => (
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-white/60 dark:via-black/60 to-white/30 dark:to-black/30" />
           <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-sm bg-[#60A5FA]/10 border border-[#60A5FA]/20 flex items-center justify-center text-[#60A5FA] mb-4 md:mb-6 backdrop-blur-sm">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-sm bg-[#C7A568]/10 border border-[#C7A568]/20 flex items-center justify-center text-[#C7A568] mb-4 md:mb-6 backdrop-blur-sm">
               <svg
                 className="w-4 h-4 md:w-5 md:h-5"
                 fill="none"

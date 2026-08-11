@@ -1,8 +1,7 @@
-// About.jsx
 const About = () => (
   <section
     id="o-nas"
-    className="py-16 sm:py-20 lg:py-28 bg-white dark:bg-[#080D1A] border-y border-neutral-200 dark:border-white/[0.04] transition-colors duration-300"
+    className="py-16 sm:py-20 lg:py-28 bg-white dark:bg-[#0F0F0F] border-y border-neutral-200 dark:border-white/[0.04] transition-colors duration-300"
   >
     <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
@@ -14,7 +13,7 @@ const About = () => (
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div className="absolute -bottom-4 -right-2 sm:-right-5 bg-[#2563EB] text-white px-5 py-3.5 rounded-lg shadow-xl shadow-[#2563EB]/20">
+          <div className="absolute -bottom-4 -right-2 sm:-right-5 bg-[#C7A568] text-white px-5 py-3.5 rounded-lg shadow-xl shadow-[#C7A568]/20">
             <div className="text-2xl sm:text-3xl font-bold leading-none">
               32+
             </div>
@@ -25,7 +24,7 @@ const About = () => (
         </div>
 
         <div>
-          <span className="text-[0.65rem] sm:text-xs font-bold text-[#60A5FA] tracking-[0.25em] uppercase">
+          <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.25em] uppercase">
             O firmie
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mt-3 mb-6 text-neutral-900 dark:text-white leading-tight transition-colors">
@@ -47,7 +46,7 @@ const About = () => (
                 href="https://www.onehydepark.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-900 dark:text-white hover:text-[#60A5FA] underline underline-offset-2 transition-colors font-medium"
+                className="text-neutral-900 dark:text-white hover:text-[#C7A568] underline underline-offset-2 transition-colors font-medium"
               >
                 One Hyde Park
               </a>{" "}
@@ -67,7 +66,7 @@ const About = () => (
               "Dbałość o każdy detal",
             ].map((t) => (
               <div key={t} className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-[#60A5FA] rounded-full shrink-0" />
+                <div className="w-1.5 h-1.5 bg-[#C7A568] rounded-full shrink-0" />
                 <span className="text-neutral-500 dark:text-neutral-400 text-sm transition-colors">
                   {t}
                 </span>

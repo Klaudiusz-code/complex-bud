@@ -1,4 +1,3 @@
-// Navbar.tsx
 "use client";
 
 import { Fragment } from "react";
@@ -11,9 +10,6 @@ const navLinks = [
   { label: "Opinie", href: "#opinie" },
   { label: "Kontakt", href: "#kontakt" },
 ];
-
-const logoUrl =
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/495335756_122094223904876885_3195785698321049331_n.jpg?stp=dst-jpg_tt6&cstp=mx599x598&ctp=s599x598&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=uC1qdx8pPi8Q7kNvwGaiNTa&_nc_oc=AdopN10ikMbrD6-FJpyYpu7-guWvCzUqGmBOOUwqXFht43JP0OFL0B96PhDxQ0QfQA0&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=XhfdQuo86sJ0t_Iy32FnxQ&_nc_ss=7b2a8&oh=00_AQHLFdu_Q9FPwaqRIlQpFNGNB68hC-G73rzDVuU9GkdgmQ&oe=6A79F8B8";
 
 const Navbar = ({
   mobileMenuOpen,
@@ -29,18 +25,10 @@ const Navbar = ({
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3.5 group">
           <img
-            src={logoUrl}
-            alt="Complex Bud"
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-sm object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+            src="/logos.svg"
+            alt="Komplex Bud"
+            className="complex-bud-logo transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-semibold tracking-tight text-base sm:text-lg text-neutral-900 dark:text-white transition-colors">
-              COMPLEX
-            </span>
-            <span className="font-semibold tracking-tight text-base sm:text-lg text-[#2563EB]">
-              BUD
-            </span>
-          </div>
         </a>
 
         <div className="hidden lg:flex items-center h-full">
@@ -60,11 +48,10 @@ const Navbar = ({
 
           <div className="w-px h-4 bg-neutral-200 dark:bg-white/10 mx-6 sm:mx-7 transition-colors" />
 
-          {/* NOWY PRZYCISK TOGGLE (SUWAK) */}
           <button
             onClick={toggleTheme}
             className={`relative w-14 h-7 rounded-full transition-colors duration-300 focus:outline-none mr-3 ${
-              isDark ? "bg-[#2563EB]" : "bg-neutral-300"
+              isDark ? "bg-[#C7A568]" : "bg-neutral-300"
             }`}
             aria-label="Zmień motyw"
           >
@@ -75,7 +62,7 @@ const Navbar = ({
             >
               {isDark ? (
                 <svg
-                  className="w-3.5 h-3.5 text-[#2563EB]"
+                  className="w-3.5 h-3.5 text-[#C7A568]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -131,7 +118,7 @@ const Navbar = ({
           <button
             onClick={toggleTheme}
             className={`relative w-12 h-6 rounded-full transition-colors duration-300 focus:outline-none ${
-              isDark ? "bg-[#2563EB]" : "bg-neutral-300"
+              isDark ? "bg-[#C7A568]" : "bg-neutral-300"
             }`}
             aria-label="Zmień motyw"
           >
@@ -142,7 +129,7 @@ const Navbar = ({
             >
               {isDark ? (
                 <svg
-                  className="w-3 h-3 text-[#2563EB]"
+                  className="w-3 h-3 text-[#C7A568]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

@@ -60,3 +60,14 @@ body {
 .animate-shimmer {
   animation: shimmer 1.8s linear infinite;
 }
+.complex-bud-logo {
+  width: 95;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 640px) {
+  .complex-bud-logo {
+    width: 101;
+  }
+}

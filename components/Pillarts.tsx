@@ -1,4 +1,3 @@
-// Pillars.jsx
 const Pillars = () => {
   const pillars = [
     {
@@ -64,7 +63,7 @@ const Pillars = () => {
     <section className="py-16 sm:py-20 lg:py-28 bg-white dark:bg-[#020202] border-t border-neutral-200 dark:border-white/[0.04] transition-colors duration-300">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
         <div className="mb-12 sm:mb-16">
-          <span className="text-[0.65rem] sm:text-xs font-bold text-[#60A5FA] tracking-[0.25em] uppercase">
+          <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.25em] uppercase">
             Dlaczego my
           </span>
           <div className="mt-4 flex items-center gap-6 lg:gap-10">
@@ -79,12 +78,12 @@ const Pillars = () => {
           {pillars.map((p) => (
             <div
               key={p.title}
-              className="group relative bg-neutral-50 dark:bg-[#0A0A0A] border border-neutral-200 dark:border-white/[0.06] border-t-2 border-t-[#2563EB] hover:border-t-[#60A5FA] hover:bg-neutral-100 dark:hover:bg-[#0D0D0D] p-7 sm:p-8 lg:p-10 transition-all duration-300"
+              className="group relative bg-neutral-50 dark:bg-[#0A0A0A] border border-neutral-200 dark:border-white/[0.06] border-t-2 border-t-[#C7A568] hover:border-t-[#a88b54] hover:bg-neutral-100 dark:hover:bg-[#0D0D0D] p-7 sm:p-8 lg:p-10 transition-all duration-300"
             >
-              <div className="w-14 h-14 bg-neutral-200 dark:bg-[#111] border border-[#2563EB]/20 group-hover:border-[#60A5FA]/40 flex items-center justify-center text-[#60A5FA] mb-6 transition-colors duration-300">
+              <div className="w-14 h-14 bg-neutral-200 dark:bg-[#111] border border-[#C7A568]/20 group-hover:border-[#C7A568]/40 flex items-center justify-center text-[#C7A568] mb-6 transition-colors duration-300">
                 {p.icon}
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white mb-3 group-hover:text-[#60A5FA] transition-colors duration-300">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white mb-3 group-hover:text-[#C7A568] transition-colors duration-300">
                 {p.title}
               </h3>
               <p className="text-neutral-500 dark:text-neutral-400 leading-relaxed font-light text-[0.9rem] sm:text-base group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition-colors duration-300">

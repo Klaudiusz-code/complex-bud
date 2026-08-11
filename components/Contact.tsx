@@ -1,4 +1,3 @@
-// Contact.jsx
 "use client"; // WYMAGANE BO UŻYWA useState
 
 import React from "react";
@@ -31,8 +30,8 @@ const Contact = () => {
           <div className="flex flex-col">
             <div className="mb-10 sm:mb-14">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-8 h-px bg-[#60A5FA]" />
-                <span className="text-[0.65rem] sm:text-xs font-bold text-[#60A5FA] tracking-[0.25em] uppercase">
+                <div className="w-8 h-px bg-[#C7A568]" />
+                <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.25em] uppercase">
                   Kontakt
                 </span>
               </div>
@@ -118,7 +117,7 @@ const Contact = () => {
                   key={c.label}
                   className={`group flex items-center gap-4 py-5 hover:bg-neutral-50 dark:hover:bg-white/[0.02] px-3 -mx-3 transition-colors duration-300 ${i !== 2 ? "border-b border-neutral-200 dark:border-white/[0.04]" : ""}`}
                 >
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm bg-[#60A5FA]/10 border border-[#60A5FA]/20 flex items-center justify-center shrink-0 text-[#60A5FA]">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm bg-[#C7A568]/10 border border-[#C7A568]/20 flex items-center justify-center shrink-0 text-[#C7A568]">
                     {c.icon}
                   </div>
                   <div>
@@ -128,7 +127,7 @@ const Contact = () => {
                     {c.href ? (
                       <a
                         href={c.href}
-                        className="text-neutral-900 dark:text-white hover:text-[#60A5FA] transition-colors font-light text-base sm:text-lg tracking-tight"
+                        className="text-neutral-900 dark:text-white hover:text-[#C7A568] transition-colors font-light text-base sm:text-lg tracking-tight"
                       >
                         {c.value}
                       </a>
@@ -145,7 +144,7 @@ const Contact = () => {
 
           <div className="bg-neutral-50 dark:bg-[#0A0A0A] border border-neutral-200 dark:border-white/[0.06] rounded-sm p-6 sm:p-8 lg:p-10 self-start shadow-sm dark:shadow-none transition-colors duration-300">
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-8 h-px bg-[#60A5FA]" />
+              <div className="w-8 h-px bg-[#C7A568]" />
               <h3 className="text-lg sm:text-xl font-bold tracking-tight text-neutral-900 dark:text-white transition-colors">
                 Szybkie zapytanie
               </h3>
@@ -159,7 +158,7 @@ const Contact = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
-                    Imię i nazwisko <span className="text-[#60A5FA]">*</span>
+                    Imię i nazwisko <span className="text-[#C7A568]">*</span>
                   </label>
                   <input
                     type="text"
@@ -168,13 +167,13 @@ const Contact = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#60A5FA]/50 transition-all duration-300 font-light text-sm"
+                    className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                     placeholder="Jan Kowalski"
                   />
                 </div>
                 <div>
                   <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
-                    Telefon <span className="text-[#60A5FA]">*</span>
+                    Telefon <span className="text-[#C7A568]">*</span>
                   </label>
                   <input
                     type="tel"
@@ -183,7 +182,7 @@ const Contact = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#60A5FA]/50 transition-all duration-300 font-light text-sm"
+                    className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                     placeholder="+48 ..."
                   />
                 </div>
@@ -198,7 +197,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#60A5FA]/50 transition-all duration-300 font-light text-sm"
+                  className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                   placeholder="jan@email.com"
                 />
               </div>
@@ -211,7 +210,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, service: e.target.value })
                   }
-                  className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-500 dark:text-neutral-500 focus:outline-none focus:border-[#60A5FA]/50 transition-all duration-300 appearance-none cursor-pointer font-light text-sm"
+                  className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-500 dark:text-neutral-500 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 appearance-none cursor-pointer font-light text-sm"
                 >
                   <option value="" className="bg-white dark:bg-[#111]">
                     Wybierz usługę...
@@ -252,13 +251,13 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#60A5FA]/50 transition-all duration-300 resize-none font-light text-sm"
+                  className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 resize-none font-light text-sm"
                   placeholder="Metraż, stan, oczekiwania..."
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold py-4 rounded-sm transition-all duration-300 shadow-2xl shadow-[#2563EB]/10 hover:shadow-[#60A5FA]/20 tracking-wide text-sm flex items-center justify-center gap-2"
+                className="w-full bg-[#C7A568] hover:bg-[#b8964f] text-white font-bold py-4 rounded-sm transition-all duration-300 shadow-2xl shadow-[#C7A568]/10 hover:shadow-[#C7A568]/20 tracking-wide text-sm flex items-center justify-center gap-2"
               >
                 Wyślij zapytanie
                 <svg

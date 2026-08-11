@@ -1,4 +1,3 @@
-// Testimonials.jsx
 const testimonials = [
   {
     text: "Po kilku rozczarowaniach z ekipami budowlanymi, Complex Bud był ostatnią szansą. Okazało się, że jedyną — która się udała.",
@@ -20,11 +19,11 @@ const testimonials = [
 const Testimonials = () => (
   <section
     id="opinie"
-    className="py-16 sm:py-20 lg:py-28 bg-neutral-50 dark:bg-[#111827] border-y border-neutral-200 dark:border-white/[0.06] transition-colors duration-300"
+    className="py-16 sm:py-20 lg:py-28 bg-neutral-50 dark:bg-[#0F0F0F] border-y border-neutral-200 dark:border-white/[0.06] transition-colors duration-300"
   >
     <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
       <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
-        <span className="text-[0.65rem] sm:text-xs font-bold text-[#60A5FA] tracking-[0.3em] uppercase">
+        <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.3em] uppercase">
           Opinie klientów
         </span>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter mt-4 text-neutral-900 dark:text-white transition-colors">
@@ -42,7 +41,7 @@ const Testimonials = () => (
               {[...Array(5)].map((_, i) => (
                 <svg
                   key={i}
-                  className="w-3.5 h-3.5 text-[#60A5FA]"
+                  className="w-3.5 h-3.5 text-[#C7A568]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >

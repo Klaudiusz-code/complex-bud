@@ -1,4 +1,5 @@
-// Realizations.jsx
+import BeforeAfter from "./BeforeAfter";
+
 const Realizations = () => {
   const realizations = [
     {
@@ -48,14 +49,15 @@ const Realizations = () => {
   return (
     <section
       id="realizacje"
-      className="py-16 sm:py-20 lg:py-28 bg-white dark:bg-[#000000] transition-colors duration-300"
+      className="py-16 sm:py-20 lg:py-28 bg-white dark:bg-black transition-colors duration-300"
     >
       <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
+        {/* Główna siatka realizacji */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 sm:mb-14 gap-4">
           <div>
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-8 h-px bg-[#60A5FA]" />
-              <span className="text-[0.65rem] sm:text-xs font-bold text-[#60A5FA] tracking-[0.25em] uppercase">
+              <div className="w-8 h-px bg-[#C7A568]" />
+              <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.25em] uppercase">
                 Realizacje
               </span>
             </div>
@@ -88,7 +90,11 @@ const Realizations = () => {
           {realizations.map((r, index) => (
             <div
               key={r.title}
-              className={`group relative overflow-hidden cursor-pointer ${index === 0 ? "lg:row-span-2 aspect-[3/4] lg:aspect-auto" : "aspect-[3/4]"}`}
+              className={`group relative overflow-hidden cursor-pointer ${
+                index === 0
+                  ? "lg:row-span-2 aspect-[3/4] lg:aspect-auto"
+                  : "aspect-[3/4]"
+              }`}
             >
               <img
                 src={r.img}
@@ -97,16 +103,44 @@ const Realizations = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/90 dark:from-black/90 via-white/20 dark:via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4 md:p-6">
-                <span className="text-[0.55rem] sm:text-[0.6rem] text-[#60A5FA] font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase block mb-1 sm:mb-1.5">
+                <span className="text-[0.55rem] sm:text-[0.6rem] text-[#C7A568] font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase block mb-1 sm:mb-1.5">
                   {r.cat}
                 </span>
                 <h3 className="text-neutral-900 dark:text-white text-xs sm:text-sm md:text-lg font-medium tracking-tight translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
                   {r.title}
                 </h3>
               </div>
-              <div className="absolute inset-0 border border-[#60A5FA]/0 group-hover:border-[#60A5FA]/30 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 border border-[#C7A568]/0 group-hover:border-[#C7A568]/30 transition-colors duration-500 pointer-events-none" />
             </div>
           ))}
+        </div>
+
+        {/* Podsekcja: Porównania Przed i Po */}
+        <div className="mt-16 sm:mt-20 lg:mt-28">
+          <div className="flex items-center gap-4 mb-8 sm:mb-10">
+            <div className="w-8 h-px bg-[#C7A568]" />
+            <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.25em] uppercase">
+              Przemiana
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <BeforeAfter
+              before="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=800&fit=crop&q=80"
+              after="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=800&fit=crop&q=80"
+              title="Remont łazienki"
+            />
+            <BeforeAfter
+              before="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=800&fit=crop&q=80"
+              after="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=800&fit=crop&q=80"
+              title="Wykończenie salonu"
+            />
+            <BeforeAfter
+              before="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=800&fit=crop&q=80"
+              after="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=800&fit=crop&q=80"
+              title="Adaptacja kuchni"
+            />
+          </div>
         </div>
       </div>
     </section>

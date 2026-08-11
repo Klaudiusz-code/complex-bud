@@ -1,4 +1,3 @@
-// FastQuote.jsx
 "use client";
 
 import { useState } from "react";
@@ -16,14 +15,14 @@ const FastQuote = () => {
 
   return (
     <section className="relative bg-neutral-50 dark:bg-[#0A0A0A] border-y border-neutral-200 dark:border-white/[0.04] overflow-hidden transition-colors duration-300">
-      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#60A5FA] hidden md:block" />
+      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#C7A568] hidden md:block" />
 
       <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14">
           <div className="lg:max-w-sm text-center lg:text-left shrink-0">
             <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-[#60A5FA]" />
-              <span className="text-[0.65rem] sm:text-xs font-bold text-[#60A5FA] tracking-[0.25em] uppercase">
+              <div className="w-8 h-px bg-[#C7A568]" />
+              <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.25em] uppercase">
                 Szybki kontakt
               </span>
             </div>
@@ -37,7 +36,7 @@ const FastQuote = () => {
 
           <div className="w-full lg:max-w-xl">
             {sent ? (
-              <div className="bg-[#60A5FA]/10 border border-[#60A5FA]/20 text-[#60A5FA] rounded-sm px-6 py-6 sm:py-8 text-center font-medium text-sm">
+              <div className="bg-[#C7A568]/10 border border-[#C7A568]/20 text-[#C7A568] rounded-sm px-6 py-6 sm:py-8 text-center font-medium text-sm">
                 Dziękujemy! Odezwiemy się w ciągu 24 godzin.
               </div>
             ) : (
@@ -53,7 +52,7 @@ const FastQuote = () => {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   placeholder="Imię"
-                  className="bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white text-sm placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-[#60A5FA]/50 transition-colors font-light"
+                  className="bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white text-sm placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-[#C7A568]/50 transition-colors font-light"
                 />
                 <input
                   type="tel"
@@ -63,7 +62,7 @@ const FastQuote = () => {
                     setFormData({ ...formData, phone: e.target.value })
                   }
                   placeholder="Numer telefonu"
-                  className="bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white text-sm placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-[#60A5FA]/50 transition-colors font-light"
+                  className="bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white text-sm placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-[#C7A568]/50 transition-colors font-light"
                 />
                 <input
                   type="text"
@@ -72,11 +71,11 @@ const FastQuote = () => {
                     setFormData({ ...formData, size: e.target.value })
                   }
                   placeholder="Metraż (opcjonalnie)"
-                  className="bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white text-sm placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-[#60A5FA]/50 transition-colors font-light"
+                  className="bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white text-sm placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-[#C7A568]/50 transition-colors font-light"
                 />
                 <button
                   type="submit"
-                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold px-6 lg:px-7 py-3.5 rounded-sm transition-all duration-300 tracking-wide text-sm flex items-center justify-center gap-2 whitespace-nowrap hover:shadow-lg hover:shadow-[#60A5FA]/10 sm:col-span-2 lg:col-span-1"
+                  className="bg-[#C7A568] hover:bg-[#b8964f] text-white font-bold px-6 lg:px-7 py-3.5 rounded-sm transition-all duration-300 tracking-wide text-sm flex items-center justify-center gap-2 whitespace-nowrap hover:shadow-lg hover:shadow-[#C7A568]/10 sm:col-span-2 lg:col-span-1"
                 >
                   Zadzwońcie
                   <svg

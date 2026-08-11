@@ -1,4 +1,3 @@
-// Footer.jsx
 const navLinks = [
   { label: "Oferta", href: "#oferta" },
   { label: "O nas", href: "#o-nas" },
@@ -6,9 +5,6 @@ const navLinks = [
   { label: "Opinie", href: "#opinie" },
   { label: "Kontakt", href: "#kontakt" },
 ];
-
-const logoUrl =
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/495335756_122094223904876885_3195785698321049331_n.jpg?stp=dst-jpg_tt6&cstp=mx599x598&ctp=s599x598&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=uC1qdx8pPi8Q7kNvwGaiNTa&_nc_oc=AdopN10ikMbrD6-FJpyYpu7-guWvCzUqGmBOOUwqXFht43JP0OFL0B96PhDxQ0QfQA0&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=XhfdQuo86sJ0t_Iy32FnxQ&_nc_ss=7b2a8&oh=00_AQHLFdu_Q9FPwaqRIlQpFNGNB68hC-G73rzDVuU9GkdgmQ&oe=6A79F8B8";
 
 const services = [
   { title: "Wykończenia pod klucz" },
@@ -24,18 +20,10 @@ const Footer = () => (
         <div className="sm:col-span-2 lg:col-span-5 lg:pr-12 lg:border-r border-neutral-200 dark:border-white/[0.04]">
           <a href="#" className="flex items-center gap-3 mb-6 group">
             <img
-              src={logoUrl}
+              src="/logos.svg"
               alt="Complex Bud logo"
-              className="w-9 h-9 rounded-md object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+              className="w-auto h-14 object-contain transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="flex items-baseline gap-1">
-              <span className="text-neutral-900 dark:text-white font-medium tracking-tight text-lg transition-colors">
-                COMPLEX
-              </span>
-              <span className="text-[#60A5FA] font-medium tracking-tight text-lg">
-                BUD
-              </span>
-            </div>
           </a>
           <p className="text-neutral-500 dark:text-neutral-500 text-sm leading-relaxed font-light max-w-xs mb-6">
             Kompleksowe wykończenia wnętrz pod klucz. Precyzja, terminowość i
@@ -46,7 +34,7 @@ const Footer = () => (
             <a
               href="#"
               aria-label="Facebook"
-              className="w-8 h-8 rounded-md bg-neutral-100 dark:bg-white/[0.03] border border-neutral-200 dark:border-white/[0.06] flex items-center justify-center text-neutral-400 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-white hover:bg-[#60A5FA]/10 hover:border-[#60A5FA]/30 transition-all"
+              className="w-8 h-8 rounded-md bg-neutral-100 dark:bg-white/[0.03] border border-neutral-200 dark:border-white/[0.06] flex items-center justify-center text-neutral-400 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-white hover:bg-[#C7A568]/10 hover:border-[#C7A568]/30 transition-all"
             >
               <svg
                 className="w-3.5 h-3.5"
@@ -59,7 +47,7 @@ const Footer = () => (
             <a
               href="#"
               aria-label="Instagram"
-              className="w-8 h-8 rounded-md bg-neutral-100 dark:bg-white/[0.03] border border-neutral-200 dark:border-white/[0.06] flex items-center justify-center text-neutral-400 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-white hover:bg-[#60A5FA]/10 hover:border-[#60A5FA]/30 transition-all"
+              className="w-8 h-8 rounded-md bg-neutral-100 dark:bg-white/[0.03] border border-neutral-200 dark:border-white/[0.06] flex items-center justify-center text-neutral-400 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-white hover:bg-[#C7A568]/10 hover:border-[#C7A568]/30 transition-all"
             >
               <svg
                 className="w-3.5 h-3.5"
@@ -147,7 +135,7 @@ const Footer = () => (
             href="https://klaudiuszdev.pl"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.6rem] text-neutral-500 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-[#60A5FA] tracking-[0.25em] uppercase font-medium transition-colors duration-300"
+            className="text-[0.6rem] text-neutral-500 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-[#C7A568] tracking-[0.25em] uppercase font-medium transition-colors duration-300"
           >
             klaudiuszdev
           </a>

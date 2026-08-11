@@ -1,12 +1,11 @@
-// TopBar.jsx
 const TopBar = () => (
-  <div className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#020202] border-b border-neutral-200 dark:border-white/[0.04] border-l-2 border-l-[#60A5FA] transition-colors duration-300">
+  <div className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#020202] border-b border-neutral-200 dark:border-white/[0.04] border-l-2 border-l-[#C7A568] transition-colors duration-300">
     <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-11 sm:h-12 flex items-center justify-between text-[0.72rem] tracking-wider">
       <div className="flex items-center gap-6 text-neutral-600 dark:text-neutral-400 font-medium">
         <span className="flex items-center gap-2.5">
-          <div className="w-[18px] h-[18px] rounded-[3px] bg-[#60A5FA]/10 flex items-center justify-center">
+          <div className="w-[18px] h-[18px] rounded-[3px] bg-[#C7A568]/10 flex items-center justify-center">
             <svg
-              className="w-3 h-3 text-[#60A5FA]"
+              className="w-3 h-3 text-[#C7A568]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -28,9 +27,9 @@ const TopBar = () => (
         </span>
 
         <span className="hidden md:flex items-center gap-2.5">
-          <div className="w-[18px] h-[18px] rounded-[3px] bg-[#60A5FA]/10 flex items-center justify-center">
+          <div className="w-[18px] h-[18px] rounded-[3px] bg-[#C7A568]/10 flex items-center justify-center">
             <svg
-              className="w-3 h-3 text-[#60A5FA]"
+              className="w-3 h-3 text-[#C7A568]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -52,9 +51,9 @@ const TopBar = () => (
           href="tel:+48123456789"
           className="hidden sm:flex items-center gap-2.5 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors font-medium"
         >
-          <div className="w-[18px] h-[18px] rounded-[3px] bg-[#60A5FA]/10 flex items-center justify-center">
+          <div className="w-[18px] h-[18px] rounded-[3px] bg-[#C7A568]/10 flex items-center justify-center">
             <svg
-              className="w-3 h-3 text-[#60A5FA]"
+              className="w-3 h-3 text-[#C7A568]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -74,7 +73,7 @@ const TopBar = () => (
           <a
             href="#"
             aria-label="Facebook"
-            className="w-[18px] h-[18px] rounded-[3px] bg-neutral-100 dark:bg-white/[0.04] flex items-center justify-center text-neutral-400 dark:text-neutral-600 hover:text-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all"
+            className="w-[18px] h-[18px] rounded-[3px] bg-neutral-100 dark:bg-white/[0.04] flex items-center justify-center text-neutral-400 dark:text-neutral-600 hover:text-[#C7A568] hover:bg-[#C7A568]/10 transition-all"
           >
             <svg
               className="w-2.5 h-2.5"
@@ -87,7 +86,7 @@ const TopBar = () => (
           <a
             href="#"
             aria-label="Instagram"
-            className="w-[18px] h-[18px] rounded-[3px] bg-neutral-100 dark:bg-white/[0.04] flex items-center justify-center text-neutral-400 dark:text-neutral-600 hover:text-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all"
+            className="w-[18px] h-[18px] rounded-[3px] bg-neutral-100 dark:bg-white/[0.04] flex items-center justify-center text-neutral-400 dark:text-neutral-600 hover:text-[#C7A568] hover:bg-[#C7A568]/10 transition-all"
           >
             <svg
               className="w-2.5 h-2.5"
