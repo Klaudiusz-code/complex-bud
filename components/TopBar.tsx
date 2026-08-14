@@ -25,7 +25,7 @@ const TopBar = () => (
 
       <div className="flex items-center gap-4">
         <a
-          href="tel:+48123456789"
+          href="+48792022994"
           className="hidden sm:flex items-center gap-2.5 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors font-medium"
         >
           <div className="w-[18px] h-[18px] rounded-[3px] bg-[#C7A568]/10 flex items-center justify-center">

@@ -116,8 +116,8 @@ const Contact = ({ data }: ContactProps) => {
                     </svg>
                   ),
                   label: "Telefon",
-                  value: "512 681 102",
-                  href: "tel:512681102",
+                  value: "+48 792 022 994",
+                  href: "tel:792022994",
                 },
                 {
                   icon: (
@@ -136,8 +136,8 @@ const Contact = ({ data }: ContactProps) => {
                     </svg>
                   ),
                   label: "E-mail",
-                  value: "magdalenachojnacka@grafix4.pl",
-                  href: "mailto:magdalenachojnacka@grafix4.pl",
+                  value: "Jan.komplexbud@gmail.com",
+                  href: "mailto:Jan.komplexbud@gmail.com",
                 },
                 {
                   icon: (
@@ -160,8 +160,8 @@ const Contact = ({ data }: ContactProps) => {
                       />
                     </svg>
                   ),
-                  label: "Lokalizacja",
-                  value: "Warszawa, Polska",
+                  label: "Obszar działania",
+                  value: "Polska, Czechy, Niemcy",
                   href: undefined,
                 },
               ].map((contact, index) => (
@@ -200,9 +200,7 @@ const Contact = ({ data }: ContactProps) => {
             </div>
           </div>
 
-          {/* =========================
-              PRAWA STRONA — FORMULARZ
-          ========================== */}
+    
           <div className="bg-neutral-50 dark:bg-[#0A0A0A] border border-neutral-200 dark:border-white/[0.06] rounded-sm p-6 sm:p-8 lg:p-10 self-start shadow-sm dark:shadow-none transition-colors duration-300">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-8 h-px bg-[#C7A568]" />
@@ -217,14 +215,12 @@ const Contact = ({ data }: ContactProps) => {
               </div>
             )}
 
-            {/* DODANO ACTION, METHOD ORAZ NAME W INPUTACH WG WYTYCZNYCH FORMSPREE */}
             <form
               onSubmit={handleSubmit}
               action="https://formspree.io/f/xbgrkqad"
               method="POST"
               className="space-y-5"
             >
-              {/* IMIĘ + TELEFON */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
