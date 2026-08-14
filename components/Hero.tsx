@@ -43,11 +43,6 @@ const Hero = ({ data }: HeroProps) => {
   }, [slides.length]);
 
   return (
-    /* 
-      NAPRAWA MOBILE: 
-      items-start lg:items-center lg:justify-center
-      Na mobile rozpoczynamy układanie od góry, na lg+ centrujemy w pionie.
-    */
     <section className="relative min-h-screen flex items-start lg:items-center lg:justify-center pt-[104px] sm:pt-[112px] lg:pt-[120px] xl:pt-[128px] pb-28 sm:pb-32 bg-white dark:bg-black overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0">
         {slides.map((slide, i) => (
@@ -70,19 +65,13 @@ const Hero = ({ data }: HeroProps) => {
         <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-transparent to-white/60 dark:to-black/60" />
       </div>
 
-      {/* 
-        NAPRAWA MOBILE: 
-        mt-20 sm:mt-16 lg:mt-0
-        Na mobile dodajemy ładny margines górny (żeby nie było na styk z menu), 
-        a na lg+ zerujemy go, bo za to odpowiada justify-center.
-      */}
       <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center mt-20 sm:mt-16 lg:mt-0">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl font-black leading-[0.95] tracking-tighter text-neutral-900 dark:text-white mb-6 sm:mb-8 transition-colors">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl font-black leading-[0.95] tracking-tighter text-neutral-900 dark:text-white mb-6 sm:mb-8 transition-colors">
           {data?.title || "Precyzja, która przetrwa lata"}
         </h1>
 
         <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-xl mx-auto mb-10 sm:mb-14 font-light transition-colors">
-          {data?.opisSekcjiHero || "a1."}
+          {data?.opisSekcjiHero || "Kompleksowe wykoczenia pod klucz"}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -115,9 +104,10 @@ const Hero = ({ data }: HeroProps) => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-20 bg-white/90 dark:bg-[#0A0A0A]/90 backdrop-blur-xl border-t border-neutral-200 dark:border-white/[0.06] transition-colors duration-300">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 h-14 sm:h-16 flex items-center justify-between">
-          <div className="hidden md:flex items-center gap-6 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+
+      <div className="absolute bottom-0 left-0 right-0 z-20 bg-white/95 dark:bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-neutral-200 dark:border-white/[0.06] transition-colors duration-300">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 py-4 md:py-0 md:h-14 sm:md:h-16 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 text-xs text-neutral-500 dark:text-neutral-400 font-medium w-full md:w-auto justify-center md:justify-start">
             <span className="flex items-center gap-2">
               <svg
                 className="w-3.5 h-3.5 text-[#C7A568]"
@@ -149,11 +139,16 @@ const Hero = ({ data }: HeroProps) => {
                   d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
                 />
               </svg>
-              +48 123 456 789
+              <a
+                href="tel:+48123456789"
+                className="hover:text-neutral-900 dark:hover:text-white transition-colors"
+              >
+                +48 123 456 789
+              </a>
             </span>
           </div>
 
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-4 sm:gap-6 order-first md:order-none">
             <div className="flex items-center gap-1.5 sm:gap-2">
               {slides.map((_, i) => (
                 <button
@@ -177,7 +172,7 @@ const Hero = ({ data }: HeroProps) => {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+          <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium w-full md:w-auto justify-center md:justify-end">
             <svg
               className="w-3.5 h-3.5 text-[#C7A568]"
               fill="none"
