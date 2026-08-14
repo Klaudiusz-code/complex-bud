@@ -17,14 +17,12 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-11 left-0 right-0 z-40 bg-white/90 dark:bg-[#0A0A0A]/90 backdrop-blur-2xl border-b border-neutral-200 dark:border-white/[0.04] transition-colors duration-300">
-      {/* ZMIANA: h-14 na mobile, h-16 na tablety, h-[72px] na małe laptopy (lg), h-20 na duże (xl) */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-14 sm:h-16 lg:h-[72px] xl:h-20 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3.5 group">
           <img
             src="/logos.svg"
             alt="Komplex Bud"
-            /* ZMIANA: Zmniejszone logo pod nową wysokość menu */
-            className="h-6 w-auto sm:h-8 lg:h-9 xl:h-12 transition-transform duration-300 group-hover:scale-105"
+            className="h-7 w-auto sm:h-8 lg:h-9 xl:h-12 transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
@@ -45,7 +43,6 @@ const Navbar = () => {
 
           <div className="w-px h-4 bg-neutral-200 dark:bg-white/10 mx-5 lg:mx-6 xl:mx-7 transition-colors" />
 
-          {/* PRZYCISK MOTYWU DESKTOP */}
           <button
             onClick={toggleTheme}
             className="relative w-[56px] h-[30px] lg:w-[60px] lg:h-[32px] rounded-full bg-neutral-200 dark:bg-neutral-800 transition-colors duration-300 focus:outline-none mr-3 active:scale-95"
@@ -70,7 +67,6 @@ const Navbar = () => {
 
           <a
             href="#kontakt"
-            /* ZMIANA: Mniejsze paddingi na lg (mały laptop) */
             className="group/btn flex items-center gap-2 text-[0.75rem] font-bold px-5 lg:px-6 xl:px-7 py-2.5 lg:py-3 xl:py-3.5 rounded-sm transition-all duration-300 tracking-wide uppercase bg-neutral-900 dark:bg-white/[0.08] hover:bg-neutral-800 dark:hover:bg-white/[0.15] text-white border border-neutral-900 dark:border-white/[0.1] hover:border-neutral-800 dark:hover:border-white/[0.2]"
           >
             Wycena

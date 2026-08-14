@@ -44,13 +44,11 @@ const Hero = ({ data }: HeroProps) => {
 
   return (
     /* 
-      NAPRAWA: Idealnie dopasowane paddingi pod nowe wymiary Navbara:
-      Mobile (h-14 + top-11 = 100px) -> pt-[104px]
-      SM (h-16 + top-11 = 108px) -> pt-[112px] 
-      LG (h-72px + top-11 = 116px) -> pt-[120px] 
-      XL (h-20 + top-11 = 124px) -> pt-[128px] 
+      NAPRAWA MOBILE: 
+      items-start lg:items-center lg:justify-center
+      Na mobile rozpoczynamy układanie od góry, na lg+ centrujemy w pionie.
     */
-    <section className="relative min-h-screen flex items-center justify-center pt-[104px] sm:pt-[112px] lg:pt-[120px] xl:pt-[128px] pb-28 sm:pb-32 bg-white dark:bg-black overflow-hidden transition-colors duration-300">
+    <section className="relative min-h-screen flex items-start lg:items-center lg:justify-center pt-[104px] sm:pt-[112px] lg:pt-[120px] xl:pt-[128px] pb-28 sm:pb-32 bg-white dark:bg-black overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0">
         {slides.map((slide, i) => (
           <div
@@ -72,8 +70,13 @@ const Hero = ({ data }: HeroProps) => {
         <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-transparent to-white/60 dark:to-black/60" />
       </div>
 
-      {/* NAPRAWA: text-8xl wszedł dopiero na 2xl (1536px), przedtem na lg jest bezpieczne text-6xl */}
-      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center">
+      {/* 
+        NAPRAWA MOBILE: 
+        mt-20 sm:mt-16 lg:mt-0
+        Na mobile dodajemy ładny margines górny (żeby nie było na styk z menu), 
+        a na lg+ zerujemy go, bo za to odpowiada justify-center.
+      */}
+      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center mt-20 sm:mt-16 lg:mt-0">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl font-black leading-[0.95] tracking-tighter text-neutral-900 dark:text-white mb-6 sm:mb-8 transition-colors">
           {data?.title || "Precyzja, która przetrwa lata"}
         </h1>
