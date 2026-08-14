@@ -104,7 +104,6 @@ const Hero = ({ data }: HeroProps) => {
         </div>
       </div>
 
-
       <div className="absolute bottom-0 left-0 right-0 z-20 bg-white/95 dark:bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-neutral-200 dark:border-white/[0.06] transition-colors duration-300">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 py-4 md:py-0 md:h-14 sm:md:h-16 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 text-xs text-neutral-500 dark:text-neutral-400 font-medium w-full md:w-auto justify-center md:justify-start">
@@ -143,7 +142,7 @@ const Hero = ({ data }: HeroProps) => {
                 href="tel:+48123456789"
                 className="hover:text-neutral-900 dark:hover:text-white transition-colors"
               >
-                +48 123 456 789
+                +48 792 022 994
               </a>
             </span>
           </div>
