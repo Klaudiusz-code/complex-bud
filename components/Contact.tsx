@@ -24,25 +24,46 @@ const Contact = ({ data }: ContactProps) => {
   });
 
   const [formSent, setFormSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const services = data?.rodzajUslugiKontakt ?? [];
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSending(true);
 
-    setFormSent(true);
+    // Pobieramy dane bezpośrednio z formularza (wymaga atrybutów "name" w inputach)
+    const data = new FormData(e.currentTarget);
 
-    setTimeout(() => {
-      setFormSent(false);
-    }, 5000);
+    try {
+      const response = await fetch("https://formspree.io/f/xbgrkqad", {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
 
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      message: "",
-      service: "",
-    });
+      if (response.ok) {
+        setFormSent(true);
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          message: "",
+          service: "",
+        });
+        setTimeout(() => {
+          setFormSent(false);
+        }, 5000);
+      } else {
+        alert("Wystąpił błąd podczas wysyłania. Spróbuj ponownie.");
+      }
+    } catch (error) {
+      alert("Wystąpił błąd sieci.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -95,8 +116,8 @@ const Contact = ({ data }: ContactProps) => {
                     </svg>
                   ),
                   label: "Telefon",
-                  value: "+48 123 456 789",
-                  href: "tel:+48123456789",
+                  value: "512 681 102",
+                  href: "tel:512681102",
                 },
                 {
                   icon: (
@@ -115,8 +136,8 @@ const Contact = ({ data }: ContactProps) => {
                     </svg>
                   ),
                   label: "E-mail",
-                  value: "kontakt@complexbud.pl",
-                  href: "mailto:kontakt@complexbud.pl",
+                  value: "magdalenachojnacka@grafix4.pl",
+                  href: "mailto:magdalenachojnacka@grafix4.pl",
                 },
                 {
                   icon: (
@@ -139,8 +160,8 @@ const Contact = ({ data }: ContactProps) => {
                       />
                     </svg>
                   ),
-                  label: "Obszar działania",
-                  value: "Polska , Czechy , Niemcy",
+                  label: "Lokalizacja",
+                  value: "Warszawa, Polska",
                   href: undefined,
                 },
               ].map((contact, index) => (
@@ -185,7 +206,6 @@ const Contact = ({ data }: ContactProps) => {
           <div className="bg-neutral-50 dark:bg-[#0A0A0A] border border-neutral-200 dark:border-white/[0.06] rounded-sm p-6 sm:p-8 lg:p-10 self-start shadow-sm dark:shadow-none transition-colors duration-300">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-8 h-px bg-[#C7A568]" />
-
               <h3 className="text-lg sm:text-xl font-bold tracking-tight text-neutral-900 dark:text-white transition-colors">
                 Szybkie zapytanie
               </h3>
@@ -197,23 +217,26 @@ const Contact = ({ data }: ContactProps) => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            {/* DODANO ACTION, METHOD ORAZ NAME W INPUTACH WG WYTYCZNYCH FORMSPREE */}
+            <form
+              onSubmit={handleSubmit}
+              action="https://formspree.io/f/xbgrkqad"
+              method="POST"
+              className="space-y-5"
+            >
               {/* IMIĘ + TELEFON */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                     Imię i nazwisko <span className="text-[#C7A568]">*</span>
                   </label>
-
                   <input
                     type="text"
                     required
+                    name="name"
                     value={formData.name}
                     onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        name: e.target.value,
-                      })
+                      setFormData({ ...formData, name: e.target.value })
                     }
                     className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                     placeholder="Jan Kowalski"
@@ -224,16 +247,13 @@ const Contact = ({ data }: ContactProps) => {
                   <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                     Telefon <span className="text-[#C7A568]">*</span>
                   </label>
-
                   <input
                     type="tel"
                     required
+                    name="phone"
                     value={formData.phone}
                     onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        phone: e.target.value,
-                      })
+                      setFormData({ ...formData, phone: e.target.value })
                     }
                     className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                     placeholder="+48 ..."
@@ -246,44 +266,36 @@ const Contact = ({ data }: ContactProps) => {
                 <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                   E-mail
                 </label>
-
                 <input
                   type="email"
+                  name="email"
                   value={formData.email}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      email: e.target.value,
-                    })
+                    setFormData({ ...formData, email: e.target.value })
                   }
                   className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                   placeholder="jan@email.com"
                 />
               </div>
 
-              {/* RODZAJ USŁUGI — Z WORDPRESSA */}
+              {/* RODZAJ USŁUGI */}
               <div>
                 <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                   Rodzaj usługi
                 </label>
-
                 <select
+                  name="service"
                   value={formData.service}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      service: e.target.value,
-                    })
+                    setFormData({ ...formData, service: e.target.value })
                   }
                   className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-neutral-300 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 appearance-none cursor-pointer font-light text-sm"
                 >
                   <option value="" className="bg-white dark:bg-[#111]">
                     Wybierz usługę...
                   </option>
-
                   {services.map((service, index) => {
                     if (!service?.rodzajUslugi) return null;
-
                     return (
                       <option
                         key={`${service.rodzajUslugi}-${index}`}
@@ -302,40 +314,40 @@ const Contact = ({ data }: ContactProps) => {
                 <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                   Opis zlecenia
                 </label>
-
                 <textarea
                   rows={4}
+                  name="message"
                   value={formData.message}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      message: e.target.value,
-                    })
+                    setFormData({ ...formData, message: e.target.value })
                   }
                   className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 resize-none font-light text-sm"
-                  placeholder="Metraż, stan, oczekiwania..."
+                  placeholder="Czego potrzebujesz, budżet, terminy..."
                 />
               </div>
 
               {/* BUTTON */}
               <button
                 type="submit"
-                className="w-full bg-[#C7A568] hover:bg-[#b8964f] text-white font-bold py-4 rounded-sm transition-all duration-300 shadow-2xl shadow-[#C7A568]/10 hover:shadow-[#C7A568]/20 tracking-wide text-sm flex items-center justify-center gap-2"
+                disabled={isSending}
+                className="w-full bg-[#C7A568] hover:bg-[#b8964f] text-white font-bold py-4 rounded-sm transition-all duration-300 shadow-2xl shadow-[#C7A568]/10 hover:shadow-[#C7A568]/20 tracking-wide text-sm flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                Wyślij zapytanie
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-                  />
-                </svg>
+                {isSending ? "Wysyłanie..." : "Wyślij zapytanie"}
+                {!isSending && (
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
+                    />
+                  </svg>
+                )}
               </button>
 
               <p className="text-[0.65rem] text-neutral-400 dark:text-neutral-700 text-center leading-relaxed pt-1 transition-colors">
