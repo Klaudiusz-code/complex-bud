@@ -117,7 +117,7 @@ const query = `
 `;
 
 export default async function Page() {
-  const res = await fetch("http://komplex-bud.com/graphql", {
+  const res = await fetch("https://komplex-bud.com/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query }),
