@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Komplex Bud",
   description: "Twój opis...",
+  verification: {
+    google: "ZpbWXjTwIeaUWi2-cUoUSazZ1ppl5_2a8em-s2tTMX0",
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +33,6 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-
       <body className="antialiased">
         <ThemeProvider>
           {children}
