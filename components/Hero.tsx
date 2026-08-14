@@ -43,9 +43,14 @@ const Hero = ({ data }: HeroProps) => {
   }, [slides.length]);
 
   return (
-    // NAPRAWA: Menu to 44px (top-11) + 64px (h-16) = 108px na mobile i 44px + 80px (h-20) = 124px na sm+
-    // Ustawiłem pt-[110px] i sm:pt-[126px], żeby idealnie nie wchodziło pod menu.
-    <section className="relative min-h-screen flex items-center justify-center pt-[110px] sm:pt-[126px] bg-white dark:bg-black overflow-hidden transition-colors duration-300">
+    /* 
+      NAPRAWA: Idealnie dopasowane paddingi pod nowe wymiary Navbara:
+      Mobile (h-14 + top-11 = 100px) -> pt-[104px]
+      SM (h-16 + top-11 = 108px) -> pt-[112px] 
+      LG (h-72px + top-11 = 116px) -> pt-[120px] 
+      XL (h-20 + top-11 = 124px) -> pt-[128px] 
+    */
+    <section className="relative min-h-screen flex items-center justify-center pt-[104px] sm:pt-[112px] lg:pt-[120px] xl:pt-[128px] pb-28 sm:pb-32 bg-white dark:bg-black overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0">
         {slides.map((slide, i) => (
           <div
@@ -67,9 +72,9 @@ const Hero = ({ data }: HeroProps) => {
         <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-transparent to-white/60 dark:to-black/60" />
       </div>
 
-      {/* NAPRAWA: Zmniejszyłem text-7xl na lg do text-6xl, żeby na laptopie (1024px - 1440px) nie był przesadnie wielki. Zmieniłem też text-4xl na text-3xl na najmniejsze ekrany. Dodałem pb-32, żeby tekst nie nakładał się na dolny pasek. */}
-      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center pb-32 sm:pb-36">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl font-black leading-[0.95] tracking-tighter text-neutral-900 dark:text-white mb-6 sm:mb-8 transition-colors">
+      {/* NAPRAWA: text-8xl wszedł dopiero na 2xl (1536px), przedtem na lg jest bezpieczne text-6xl */}
+      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl font-black leading-[0.95] tracking-tighter text-neutral-900 dark:text-white mb-6 sm:mb-8 transition-colors">
           {data?.title || "Precyzja, która przetrwa lata"}
         </h1>
 
@@ -80,7 +85,7 @@ const Hero = ({ data }: HeroProps) => {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <a
             href="#kontakt"
-            className="group flex items-center justify-center gap-2.5 bg-[#C7A568] hover:bg-[#b8964f] text-white font-semibold px-8 sm:px-10 py-3.5 sm:py-4.5 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#C7A568]/15"
+            className="group flex items-center justify-center gap-2.5 bg-[#C7A568] hover:bg-[#b8964f] text-white font-semibold px-8 sm:px-10 py-3.5 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#C7A568]/15"
           >
             {data?.przyciski?.przyciskPierwszy || "Bezpłatna wycena"}
             <svg
@@ -100,7 +105,7 @@ const Hero = ({ data }: HeroProps) => {
 
           <a
             href="#realizacje"
-            className="border border-neutral-900/20 dark:border-white/20 text-neutral-900 dark:text-white hover:border-neutral-900/40 dark:hover:border-white/40 font-medium px-8 sm:px-10 py-3.5 sm:py-4.5 rounded-sm transition-colors duration-300 backdrop-blur-sm"
+            className="border border-neutral-900/20 dark:border-white/20 text-neutral-900 dark:text-white hover:border-neutral-900/40 dark:hover:border-white/40 font-medium px-8 sm:px-10 py-3.5 rounded-sm transition-colors duration-300 backdrop-blur-sm"
           >
             {data?.przyciski?.przyciskDrugi || "Zobacz realizacje"}
           </a>

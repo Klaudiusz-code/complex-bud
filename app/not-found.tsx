@@ -37,7 +37,7 @@ const Custom404 = () => {
 
         <a
           href="/"
-          className="group inline-flex items-center gap-2.5 bg-[#C7A568] hover:bg-[#9c7b3c] text-white font-bold px-8 py-4 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#2563EB]/15"
+          className="group inline-flex items-center gap-2.5 bg-[#C7A568] hover:bg-[#9c7b3c] text-white font-bold px-8 py-4 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#9c7b3c]/15"
         >
           Wróć na stronę główną
           <svg
