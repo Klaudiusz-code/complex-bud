@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 export default async function PrivacyPolicyPage() {
-  const response = await fetch("http://komplex-bud.com/graphql", {
+  const response = await fetch("https://komplex-bud.com/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

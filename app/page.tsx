@@ -30,7 +30,7 @@ const query = `
 
 async function getHomepageSEO(): Promise<HomepageSEO | null> {
   try {
-    const response = await fetch("http://komplex-bud.com/graphql", {
+    const response = await fetch("https://komplex-bud.com/graphql", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
