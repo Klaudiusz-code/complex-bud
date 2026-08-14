@@ -43,7 +43,7 @@ const TopBar = () => (
               />
             </svg>
           </div>
-          +48 123 456 789
+          +48 792 022 994
         </a>
 
         <div className="flex items-center gap-2 ml-2 pl-4 border-l border-neutral-200 dark:border-white/[0.06]">
