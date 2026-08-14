@@ -1,9 +1,20 @@
-"use client"; // WYMAGANE BO UŻYWA useState
+"use client";
 
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const Contact = () => {
+type ContactData = {
+  tytulSekcjiKontakt?: string | null;
+  opis?: string | null;
+  rodzajUslugiKontakt?: {
+    rodzajUslugi?: string | null;
+  }[];
+};
+
+type ContactProps = {
+  data?: ContactData;
+};
+
+const Contact = ({ data }: ContactProps) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -11,13 +22,27 @@ const Contact = () => {
     message: "",
     service: "",
   });
+
   const [formSent, setFormSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const services = data?.rodzajUslugiKontakt ?? [];
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setFormSent(true);
-    setTimeout(() => setFormSent(false), 5000);
-    setFormData({ name: "", phone: "", email: "", message: "", service: "" });
+
+    setTimeout(() => {
+      setFormSent(false);
+    }, 5000);
+
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+      service: "",
+    });
   };
 
   return (
@@ -27,24 +52,30 @@ const Contact = () => {
     >
       <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* =========================
+              LEWA STRONA
+          ========================== */}
           <div className="flex flex-col">
             <div className="mb-10 sm:mb-14">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-8 h-px bg-[#C7A568]" />
+
                 <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.25em] uppercase">
                   Kontakt
                 </span>
               </div>
+
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter mb-4 leading-[1.1] text-neutral-900 dark:text-white transition-colors">
-                Porozmawiajmy
-                <br />o Twoim projekcie
+                {data?.tytulSekcjiKontakt || "Porozmawiajmy o Twoim projekcie"}
               </h2>
+
               <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed font-light max-w-md transition-colors">
-                Wypełnij formularz lub zadzwoń bezpośrednio. Odpowiadamy szybko
-                i konkretnie.
+                {data?.opis ||
+                  "Wypełnij formularz lub zadzwoń bezpośrednio. Odpowiadamy szybko i konkretnie."}
               </p>
             </div>
 
+            {/* DANE KONTAKTOWE */}
             <div className="space-y-0 border-t border-neutral-200 dark:border-white/[0.06]">
               {[
                 {
@@ -109,31 +140,37 @@ const Contact = () => {
                     </svg>
                   ),
                   label: "Obszar działania",
-                  value: "Zamość i okolice (50km)",
+                  value: "Polska , Czechy , Niemcy",
                   href: undefined,
                 },
-              ].map((c, i) => (
+              ].map((contact, index) => (
                 <div
-                  key={c.label}
-                  className={`group flex items-center gap-4 py-5 hover:bg-neutral-50 dark:hover:bg-white/[0.02] px-3 -mx-3 transition-colors duration-300 ${i !== 2 ? "border-b border-neutral-200 dark:border-white/[0.04]" : ""}`}
+                  key={contact.label}
+                  className={`group flex items-center gap-4 py-5 hover:bg-neutral-50 dark:hover:bg-white/[0.02] px-3 -mx-3 transition-colors duration-300 ${
+                    index !== 2
+                      ? "border-b border-neutral-200 dark:border-white/[0.04]"
+                      : ""
+                  }`}
                 >
                   <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm bg-[#C7A568]/10 border border-[#C7A568]/20 flex items-center justify-center shrink-0 text-[#C7A568]">
-                    {c.icon}
+                    {contact.icon}
                   </div>
+
                   <div>
                     <div className="text-[0.6rem] text-neutral-400 dark:text-neutral-600 mb-0.5 font-bold tracking-[0.2em] uppercase">
-                      {c.label}
+                      {contact.label}
                     </div>
-                    {c.href ? (
+
+                    {contact.href ? (
                       <a
-                        href={c.href}
+                        href={contact.href}
                         className="text-neutral-900 dark:text-white hover:text-[#C7A568] transition-colors font-light text-base sm:text-lg tracking-tight"
                       >
-                        {c.value}
+                        {contact.value}
                       </a>
                     ) : (
                       <span className="text-neutral-500 dark:text-neutral-400 font-light text-base sm:text-lg tracking-tight transition-colors">
-                        {c.value}
+                        {contact.value}
                       </span>
                     )}
                   </div>
@@ -142,119 +179,145 @@ const Contact = () => {
             </div>
           </div>
 
+          {/* =========================
+              PRAWA STRONA — FORMULARZ
+          ========================== */}
           <div className="bg-neutral-50 dark:bg-[#0A0A0A] border border-neutral-200 dark:border-white/[0.06] rounded-sm p-6 sm:p-8 lg:p-10 self-start shadow-sm dark:shadow-none transition-colors duration-300">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-8 h-px bg-[#C7A568]" />
+
               <h3 className="text-lg sm:text-xl font-bold tracking-tight text-neutral-900 dark:text-white transition-colors">
                 Szybkie zapytanie
               </h3>
             </div>
+
             {formSent && (
               <div className="mb-6 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-sm px-4 py-3.5 text-sm font-medium">
                 ✓ Dziękujemy! Skontaktujemy się wkrótce.
               </div>
             )}
+
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* IMIĘ + TELEFON */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                     Imię i nazwisko <span className="text-[#C7A568]">*</span>
                   </label>
+
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
+                      setFormData({
+                        ...formData,
+                        name: e.target.value,
+                      })
                     }
                     className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                     placeholder="Jan Kowalski"
                   />
                 </div>
+
                 <div>
                   <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                     Telefon <span className="text-[#C7A568]">*</span>
                   </label>
+
                   <input
                     type="tel"
                     required
                     value={formData.phone}
                     onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
+                      setFormData({
+                        ...formData,
+                        phone: e.target.value,
+                      })
                     }
                     className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                     placeholder="+48 ..."
                   />
                 </div>
               </div>
+
+              {/* EMAIL */}
               <div>
                 <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                   E-mail
                 </label>
+
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
+                    setFormData({
+                      ...formData,
+                      email: e.target.value,
+                    })
                   }
                   className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 font-light text-sm"
                   placeholder="jan@email.com"
                 />
               </div>
+
+              {/* RODZAJ USŁUGI — Z WORDPRESSA */}
               <div>
                 <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                   Rodzaj usługi
                 </label>
+
                 <select
                   value={formData.service}
                   onChange={(e) =>
-                    setFormData({ ...formData, service: e.target.value })
+                    setFormData({
+                      ...formData,
+                      service: e.target.value,
+                    })
                   }
-                  className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-500 dark:text-neutral-500 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 appearance-none cursor-pointer font-light text-sm"
+                  className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-neutral-300 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 appearance-none cursor-pointer font-light text-sm"
                 >
                   <option value="" className="bg-white dark:bg-[#111]">
                     Wybierz usługę...
                   </option>
-                  <option
-                    value="pod-klucz"
-                    className="bg-white dark:bg-[#111] text-neutral-900 dark:text-white"
-                  >
-                    Wykończenie pod klucz
-                  </option>
-                  <option
-                    value="remont"
-                    className="bg-white dark:bg-[#111] text-neutral-900 dark:text-white"
-                  >
-                    Remont generalny
-                  </option>
-                  <option
-                    value="adaptacja"
-                    className="bg-white dark:bg-[#111] text-neutral-900 dark:text-white"
-                  >
-                    Adaptacja wnętrza
-                  </option>
-                  <option
-                    value="projekt"
-                    className="bg-white dark:bg-[#111] text-neutral-900 dark:text-white"
-                  >
-                    Projektowanie wykonawcze
-                  </option>
+
+                  {services.map((service, index) => {
+                    if (!service?.rodzajUslugi) return null;
+
+                    return (
+                      <option
+                        key={`${service.rodzajUslugi}-${index}`}
+                        value={service.rodzajUslugi}
+                        className="bg-white dark:bg-[#111] text-neutral-900 dark:text-white"
+                      >
+                        {service.rodzajUslugi}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
+
+              {/* OPIS */}
               <div>
                 <label className="block text-[0.6rem] text-neutral-500 mb-1.5 font-bold tracking-[0.2em] uppercase">
                   Opis zlecenia
                 </label>
+
                 <textarea
                   rows={4}
                   value={formData.message}
                   onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
+                    setFormData({
+                      ...formData,
+                      message: e.target.value,
+                    })
                   }
                   className="w-full bg-white dark:bg-white/[0.03] border border-neutral-300 dark:border-white/[0.06] rounded-sm px-4 py-3.5 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:outline-none focus:border-[#C7A568]/50 transition-all duration-300 resize-none font-light text-sm"
                   placeholder="Metraż, stan, oczekiwania..."
                 />
               </div>
+
+              {/* BUTTON */}
               <button
                 type="submit"
                 className="w-full bg-[#C7A568] hover:bg-[#b8964f] text-white font-bold py-4 rounded-sm transition-all duration-300 shadow-2xl shadow-[#C7A568]/10 hover:shadow-[#C7A568]/20 tracking-wide text-sm flex items-center justify-center gap-2"
@@ -274,6 +337,7 @@ const Contact = () => {
                   />
                 </svg>
               </button>
+
               <p className="text-[0.65rem] text-neutral-400 dark:text-neutral-700 text-center leading-relaxed pt-1 transition-colors">
                 Wysyłając formularz, zgadzasz się na przetwarzanie danych w celu
                 odpowiedzi na zapytanie.

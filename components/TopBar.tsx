@@ -2,29 +2,6 @@ const TopBar = () => (
   <div className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#020202] border-b border-neutral-200 dark:border-white/[0.04] border-l-2 border-l-[#C7A568] transition-colors duration-300">
     <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-11 sm:h-12 flex items-center justify-between text-[0.72rem] tracking-wider">
       <div className="flex items-center gap-6 text-neutral-600 dark:text-neutral-400 font-medium">
-        <span className="flex items-center gap-2.5">
-          <div className="w-[18px] h-[18px] rounded-[3px] bg-[#C7A568]/10 flex items-center justify-center">
-            <svg
-              className="w-3 h-3 text-[#C7A568]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-              />
-            </svg>
-          </div>
-          Zamość, ul. Zamojska 12
-        </span>
 
         <span className="hidden md:flex items-center gap-2.5">
           <div className="w-[18px] h-[18px] rounded-[3px] bg-[#C7A568]/10 flex items-center justify-center">
@@ -42,7 +19,7 @@ const TopBar = () => (
               />
             </svg>
           </div>
-          Pon-Pt: 8:00 - 18:00
+          Pon-Pt: 8:00 - 17:00
         </span>
       </div>
 

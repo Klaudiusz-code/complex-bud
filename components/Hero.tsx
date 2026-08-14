@@ -1,8 +1,21 @@
 "use client";
+
 import { useState, useEffect } from "react";
 
-const Hero = () => {
+type HeroProps = {
+  data?: {
+    title: string;
+    opisSekcjiHero: string;
+    przyciski: {
+      przyciskPierwszy: string;
+      przyciskDrugi: string;
+    };
+  };
+};
+
+const Hero = ({ data }: HeroProps) => {
   const [current, setCurrent] = useState(0);
+
   const slides = [
     {
       image:
@@ -30,12 +43,16 @@ const Hero = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 sm:pt-24 lg:pt-[110px] bg-white dark:bg-black overflow-hidden transition-colors duration-300">
+    // NAPRAWA: Menu to 44px (top-11) + 64px (h-16) = 108px na mobile i 44px + 80px (h-20) = 124px na sm+
+    // Ustawiłem pt-[110px] i sm:pt-[126px], żeby idealnie nie wchodziło pod menu.
+    <section className="relative min-h-screen flex items-center justify-center pt-[110px] sm:pt-[126px] bg-white dark:bg-black overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0">
         {slides.map((slide, i) => (
           <div
             key={i}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              i === current ? "opacity-100 scale-100" : "opacity-0 scale-105"
+            }`}
             style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
           >
             <img
@@ -45,20 +62,19 @@ const Hero = () => {
             />
           </div>
         ))}
+
         <div className="absolute inset-0 bg-radial-[ellipse_at_center] from-transparent 0% via-white/40 dark:via-black/40 50% to-white dark:to-black 90%" />
         <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-transparent to-white/60 dark:to-black/60" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tighter text-neutral-900 dark:text-white mb-6 sm:mb-8 transition-colors">
-          Precyzja, która
-          <br />
-          <span className="text-[#C7A568]">przetrwa lata</span>
+      {/* NAPRAWA: Zmniejszyłem text-7xl na lg do text-6xl, żeby na laptopie (1024px - 1440px) nie był przesadnie wielki. Zmieniłem też text-4xl na text-3xl na najmniejsze ekrany. Dodałem pb-32, żeby tekst nie nakładał się na dolny pasek. */}
+      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center pb-32 sm:pb-36">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl font-black leading-[0.95] tracking-tighter text-neutral-900 dark:text-white mb-6 sm:mb-8 transition-colors">
+          {data?.title || "Precyzja, która przetrwa lata"}
         </h1>
 
         <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-xl mx-auto mb-10 sm:mb-14 font-light transition-colors">
-          Kompleksowe wykończenia pod klucz. Solidność i bezkompromisowa jakość
-          na każdym etapie prac.
+          {data?.opisSekcjiHero || "a1."}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -66,7 +82,7 @@ const Hero = () => {
             href="#kontakt"
             className="group flex items-center justify-center gap-2.5 bg-[#C7A568] hover:bg-[#b8964f] text-white font-semibold px-8 sm:px-10 py-3.5 sm:py-4.5 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#C7A568]/15"
           >
-            Bezpłatna wycena
+            {data?.przyciski?.przyciskPierwszy || "Bezpłatna wycena"}
             <svg
               className="w-4 h-4 group-hover:translate-x-1 transition-transform"
               fill="none"
@@ -81,11 +97,12 @@ const Hero = () => {
               />
             </svg>
           </a>
+
           <a
             href="#realizacje"
             className="border border-neutral-900/20 dark:border-white/20 text-neutral-900 dark:text-white hover:border-neutral-900/40 dark:hover:border-white/40 font-medium px-8 sm:px-10 py-3.5 sm:py-4.5 rounded-sm transition-colors duration-300 backdrop-blur-sm"
           >
-            Zobacz realizacje
+            {data?.przyciski?.przyciskDrugi || "Zobacz realizacje"}
           </a>
         </div>
       </div>
@@ -109,6 +126,7 @@ const Hero = () => {
               </svg>
               Ubezpieczona realizacja
             </span>
+
             <span className="flex items-center gap-2">
               <svg
                 className="w-3.5 h-3.5 text-[#C7A568]"
@@ -133,11 +151,16 @@ const Hero = () => {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`transition-all duration-500 rounded-full ${i === current ? "w-8 h-2 bg-[#C7A568]" : "w-2 h-2 bg-neutral-300 dark:bg-white/20 hover:bg-neutral-400 dark:hover:bg-white/40"}`}
+                  className={`transition-all duration-500 rounded-full ${
+                    i === current
+                      ? "w-8 h-2 bg-[#C7A568]"
+                      : "w-2 h-2 bg-neutral-300 dark:bg-white/20 hover:bg-neutral-400 dark:hover:bg-white/40"
+                  }`}
                   aria-label={`Przejdź do slajdu ${i + 1}`}
                 />
               ))}
             </div>
+
             <div className="w-20 sm:w-24 h-[2px] bg-neutral-200 dark:bg-white/10 rounded-full overflow-hidden hidden sm:block">
               <div
                 key={current}
@@ -160,7 +183,7 @@ const Hero = () => {
                 d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            Pon-Pt: 8:00 - 18:00
+            Pon-Pt: 8:00 - 17:00
           </div>
         </div>
       </div>

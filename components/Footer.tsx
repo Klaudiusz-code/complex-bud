@@ -112,11 +112,6 @@ const Footer = () => (
               >
                 biuro@complexbud.pl
               </a>
-              <p className="pt-1 text-neutral-400 dark:text-neutral-600 text-xs leading-relaxed transition-colors">
-                Zamość i okolice
-                <br />
-                ul. Zamojska 12
-              </p>
             </div>
           </div>
         </div>
@@ -128,7 +123,7 @@ const Footer = () => (
         </p>
         <div className="flex items-center gap-3">
           <span className="text-[0.6rem] text-neutral-400 dark:text-neutral-700 tracking-[0.15em] uppercase font-light transition-colors">
-            Projekt & Development
+            Projekt & Programowanie
           </span>
           <div className="w-4 h-px bg-neutral-300 dark:bg-neutral-800" />
           <a

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeContext"; // <-- TUTAJ JEST PROVIDER
+import { ThemeProvider } from "@/components/ThemeContext";
+import CookieBanner from "@/components/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Complex Bud",
-  description: "Kompleksowe wykończenia pod klucz.",
+  title: "Komplex Bud",
+  description: "Twój opis...",
 };
 
 export default function RootLayout({
@@ -29,24 +30,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <head>
-        {/* Ten skrypt zapobiega białemu mignięciu przy zmianie motywu */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (localStorage.theme === 'light') {
-                  document.documentElement.classList.remove('dark')
-                } else {
-                  document.documentElement.classList.add('dark')
-                }
-              } catch (_) {}
-            `,
-          }}
-        />
-      </head>
+
       <body className="antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <CookieBanner />
+        </ThemeProvider>
       </body>
     </html>
   );

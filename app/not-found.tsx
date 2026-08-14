@@ -3,14 +3,14 @@ const Custom404 = () => {
   return (
     <section className="min-h-screen bg-white dark:bg-[#020202] flex items-center justify-center px-5 sm:px-6 relative overflow-hidden transition-colors duration-300">
       {/* Delikatna akcentowa linia na samej górze zamiast taśm */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-[#2563EB]" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-[#C7A568]" />
 
       <div className="relative z-10 text-center max-w-lg mx-auto">
         <h1 className="text-[8rem] sm:text-[10rem] md:text-[12rem] font-black tracking-tighter text-neutral-200 dark:text-white leading-none mb-6 select-none">
-          4<span className="text-[#2563EB]">0</span>4
+          4<span className="text-[#C7A568]">0</span>4
         </h1>
 
-        <div className="w-16 h-16 mx-auto mb-8 rounded-full bg-neutral-100 dark:bg-[#2563EB]/10 border border-neutral-200 dark:border-[#2563EB]/20 flex items-center justify-center text-[#2563EB] transition-colors">
+        <div className="w-16 h-16 mx-auto mb-8 rounded-full bg-neutral-100 dark:bg-[#2563EB]/10 border border-neutral-200 dark:border-[#2563EB]/20 flex items-center justify-center text-[#C7A568] transition-colors">
           <svg
             className="w-8 h-8"
             fill="none"
@@ -37,7 +37,7 @@ const Custom404 = () => {
 
         <a
           href="/"
-          className="group inline-flex items-center gap-2.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold px-8 py-4 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#2563EB]/15"
+          className="group inline-flex items-center gap-2.5 bg-[#C7A568] hover:bg-[#9c7b3c] text-white font-bold px-8 py-4 rounded-sm transition-all duration-300 tracking-wide shadow-xl shadow-[#2563EB]/15"
         >
           Wróć na stronę główną
           <svg

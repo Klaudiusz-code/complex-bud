@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useTheme } from "@/components/ThemeContext";
 
 const navLinks = [
@@ -11,13 +11,11 @@ const navLinks = [
   { label: "Kontakt", href: "#kontakt" },
 ];
 
-const Navbar = ({
-  mobileMenuOpen,
-  setMobileMenuOpen,
-}: {
-  mobileMenuOpen: boolean;
-  setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+// USUNIĘTO PROPSY - Navbar zarządza sobą sam
+const Navbar = () => {
+  // DODANO STAN MOBILNEGO MENU WEWNĄTRZ KOMPONENTU
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const { isDark, toggleTheme } = useTheme();
 
   return (
@@ -27,7 +25,7 @@ const Navbar = ({
           <img
             src="/logos.svg"
             alt="Komplex Bud"
-            className="complex-bud-logo transition-transform duration-300 group-hover:scale-105"
+            className="h-7 w-auto sm:h-9 md:h-12 transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
@@ -48,25 +46,24 @@ const Navbar = ({
 
           <div className="w-px h-4 bg-neutral-200 dark:bg-white/10 mx-6 sm:mx-7 transition-colors" />
 
+          {/* PRZYCISK MOTYWU DESKTOP */}
           <button
             onClick={toggleTheme}
-            className={`relative w-14 h-7 rounded-full transition-colors duration-300 focus:outline-none mr-3 ${
-              isDark ? "bg-[#C7A568]" : "bg-neutral-300"
-            }`}
+            className="relative w-[60px] h-[32px] rounded-full bg-neutral-200 dark:bg-neutral-800 transition-colors duration-300 focus:outline-none mr-3 active:scale-95"
             aria-label="Zmień motyw"
           >
             <span
-              className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-sm transition-transform duration-300 flex items-center justify-center ${
-                isDark ? "translate-x-7" : "translate-x-0"
+              className={`absolute top-[3px] left-[3px] w-[26px] h-[26px] bg-white dark:bg-[#C7A568] rounded-full shadow-md dark:shadow-[0_0_12px_rgba(199,165,104,0.4)] transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex items-center justify-center ${
+                isDark ? "translate-x-[28px]" : "translate-x-0"
               }`}
             >
               {isDark ? (
                 <svg
-                  className="w-3.5 h-3.5 text-[#C7A568]"
+                  className="w-3.5 h-3.5 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                 >
                   <path
                     strokeLinecap="round"
@@ -76,11 +73,11 @@ const Navbar = ({
                 </svg>
               ) : (
                 <svg
-                  className="w-3.5 h-3.5 text-amber-500"
+                  className="w-4 h-4 text-amber-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                 >
                   <path
                     strokeLinecap="round"
@@ -114,22 +111,20 @@ const Navbar = ({
         </div>
 
         <div className="lg:hidden flex items-center gap-3">
-          {/* Wersja suwaka na Mobile */}
+          {/* PRZYCISK MOTYWU MOBILE */}
           <button
             onClick={toggleTheme}
-            className={`relative w-12 h-6 rounded-full transition-colors duration-300 focus:outline-none ${
-              isDark ? "bg-[#C7A568]" : "bg-neutral-300"
-            }`}
+            className="relative w-[52px] h-[28px] rounded-full bg-neutral-200 dark:bg-neutral-800 transition-colors duration-300 focus:outline-none active:scale-95"
             aria-label="Zmień motyw"
           >
             <span
-              className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-transform duration-300 flex items-center justify-center ${
-                isDark ? "translate-x-6" : "translate-x-0"
+              className={`absolute top-[2px] left-[2px] w-[24px] h-[24px] bg-white dark:bg-[#C7A568] rounded-full shadow-md dark:shadow-[0_0_10px_rgba(199,165,104,0.4)] transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex items-center justify-center ${
+                isDark ? "translate-x-[24px]" : "translate-x-0"
               }`}
             >
               {isDark ? (
                 <svg
-                  className="w-3 h-3 text-[#C7A568]"
+                  className="w-3 h-3 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -143,7 +138,7 @@ const Navbar = ({
                 </svg>
               ) : (
                 <svg
-                  className="w-3 h-3 text-amber-500"
+                  className="w-3.5 h-3.5 text-amber-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
