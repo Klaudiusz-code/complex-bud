@@ -109,7 +109,7 @@ const Footer = () => (
                 href="mailto:Jan.komplexbud@gmail.com"
                 className="block hover:text-neutral-900 dark:hover:text-white transition-colors"
               >
-                Jan.komplexbud@gmail.com
+                jan.komplexbud@gmail.com
               </a>
             </div>
           </div>

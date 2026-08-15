@@ -136,7 +136,7 @@ const Contact = ({ data }: ContactProps) => {
                     </svg>
                   ),
                   label: "E-mail",
-                  value: "Jan.komplexbud@gmail.com",
+                  value: "jan.komplexbud@gmail.com",
                   href: "mailto:jan.komplexbud@gmail.com",
                 },
                 {
