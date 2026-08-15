@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeContext";
 import CookieBanner from "@/components/CookieBanner";
+import WelcomeScreen from "@/components/WelcomeScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,8 +34,25 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="antialiased">
+   
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                if (!localStorage.getItem('complex-bud-visited')) {
+                  document.documentElement.style.backgroundColor = '#050505';
+                  document.documentElement.classList.add('show-welcome-screen');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
+
+      <body className="bg-white dark:bg-black text-neutral-900 dark:text-white antialiased">
         <ThemeProvider>
+          <WelcomeScreen />
           {children}
           <CookieBanner />
         </ThemeProvider>
