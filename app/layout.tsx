@@ -38,7 +38,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                // 1. ANTY-MRUGNIĘCIA MOTYWU
                 var theme = localStorage.getItem('theme');
                 var isDark = !theme || theme === 'dark'; 
                 var html = document.documentElement;
@@ -51,7 +50,6 @@ export default function RootLayout({
                   html.style.backgroundColor = '#ffffff';
                 }
 
-                // 2. EKRAN POWITALNY
                 if (document.cookie.includes('complex_visited=true')) return;
 
                 var splash = document.createElement('div');
@@ -60,24 +58,29 @@ export default function RootLayout({
 
                 splash.innerHTML = \`
                   <style>
+                    /* --- ANIMACJE --- */
                     @keyframes splashFadeOut {
                       0% { opacity: 1; transform: scale(1); filter: blur(0px); }
                       100% { opacity: 0; transform: scale(1.05); filter: blur(4px); }
                     }
                     @keyframes fadeUp {
-                      from { opacity: 0; transform: translateY(25px); }
+                      from { opacity: 0; transform: translateY(20px); }
                       to { opacity: 1; transform: translateY(0); }
                     }
                     @keyframes drawLine {
                       from { width: 0; opacity: 0; }
-                      to { width: 160px; opacity: 1; }
+                      to { width: 100%; opacity: 1; }
                     }
-                    @keyframes slowZoom {
-                      0% { transform: scale(1.1); }
-                      100% { transform: scale(1.2); }
+                    @keyframes clipReveal {
+                      from { clip-path: inset(100% 0 0 0); transform: translateY(10px); }
+                      to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+                    }
+                    @keyframes shimmer {
+                      0% { transform: translateX(-150%); }
+                      100% { transform: translateX(250%); }
                     }
 
-                    /* GŁÓWNY KONTENER */
+                    /* --- GŁÓWNY KONTENER --- */
                     #splash-screen {
                       position: fixed; inset: 0; z-index: 99999;
                       background-color: #ffffff;
@@ -89,83 +92,132 @@ export default function RootLayout({
                     #splash-screen.dark-mode { background-color: #050505; }
                     #splash-screen.exiting { animation: splashFadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; pointer-events: none; }
                     
-                    /* TŁO - ZDJĘCIE CINEMATYCZNE */
+                    /* --- TŁA --- */
                     .splash-bg {
-                      position: absolute; inset: 0; z-index: 0;
+                      position: absolute; inset: -20px; z-index: 0;
                       background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80');
                       background-size: cover; background-position: center;
-                      filter: blur(6px) brightness(0.9);
-                      opacity: 0.15; transform: scale(1.1);
-                      animation: slowZoom 20s ease-in-out infinite alternate;
-                      transition: opacity 0.5s;
+                      filter: blur(4px) brightness(0.9);
+                      opacity: 0.15; 
+                      transition: opacity 0.5s, filter 0.5s;
                     }
-                    .dark-mode .splash-bg { opacity: 0.2; filter: blur(8px) brightness(0.6); }
+                    .dark-mode .splash-bg { opacity: 0.2; filter: blur(6px) brightness(0.6); }
 
-                    /* TŁO - SPOTLIGHT I GRADIENTY */
                     .splash-overlay {
                       position: absolute; inset: 0; z-index: 1;
-                      background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.95) 60%);
+                      background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.95) 60%);
                       transition: background 0.5s;
                     }
                     .dark-mode .splash-overlay {
-                      background: radial-gradient(circle at 50% 40%, rgba(5,5,5,0.5) 0%, rgba(5,5,5,0.9) 60%);
+                      background: radial-gradient(circle at 50% 40%, rgba(5,5,5,0.6) 0%, rgba(5,5,5,0.9) 60%);
                     }
 
-                    /* TREŚĆ */
+                    /* --- TREŚĆ --- */
                     .splash-content {
                       position: relative; z-index: 2;
                       display: flex; flex-direction: column; align-items: center;
-                      padding: 0 20px; margin-bottom: 15vh;
+                      text-align: center;
+                      gap: 1.25rem; 
+                      max-width: 500px;
+                      padding: 0 20px;
                     }
 
-                    /* ELEMENTY */
                     .splash-logo {
-                      width: clamp(180px, 40vw, 280px); 
-                      margin-bottom: clamp(2rem, 5vw, 3.5rem);
+                      width: 140px; 
                       opacity: 0; animation: fadeUp 1s ease-out 0.2s forwards;
+                      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
                     }
+                    .dark-mode .splash-logo { filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
                     
-                    .splash-line-container { height: 1px; display: flex; justify-content: center; margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+                    .splash-line-container { width: 120px; height: 1px; }
                     .splash-line {
                       height: 1px; width: 0;
                       background: linear-gradient(90deg, transparent, rgba(199, 165, 104, 0.7), transparent);
                       animation: drawLine 1.5s ease-out 0.6s forwards;
                     }
 
+                    /* NOWY: MOCNY NAGŁÓWEK */
+                    .splash-headline {
+                      color: #171717; 
+                      font-size: 1.1rem; 
+                      font-weight: 600; line-height: 1.3;
+                      letter-spacing: -0.01em;
+                      margin-top: 0.5rem;
+                      opacity: 0; animation: clipReveal 1.2s cubic-bezier(0.65, 0, 0.35, 1) 0.8s forwards;
+                    }
+                    .dark-mode .splash-headline { color: #ffffff; }
+
+                    /* OPIS POWITALNY */
                     .splash-text {
-                      color: #737373; 
-                      font-size: clamp(0.65rem, 1.5vw, 0.8rem); 
-                      letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300;
-                      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
-                      opacity: 0; animation: fadeUp 1s ease-out 0.8s forwards;
-                      text-align: center;
+                      color: #737373; font-size: 0.7rem; 
+                      letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400;
+                      opacity: 0; animation: fadeUp 1s ease-out 1.1s forwards;
+                      line-height: 1.6;
                     }
                     .dark-mode .splash-text { color: #a3a3a3; }
+
+                    /* SHIMMER LOADER */
+                    .splash-loader {
+                      width: 80px; height: 2px; 
+                      background: rgba(199, 165, 104, 0.15);
+                      border-radius: 2px; overflow: hidden;
+                      opacity: 0; animation: fadeUp 0.5s ease-out 1.3s forwards;
+                      position: relative;
+                      margin-top: 0.5rem;
+                    }
+                    .splash-loader-fill {
+                      height: 100%; width: 0%;
+                      background: rgba(199, 165, 104, 0.4);
+                      border-radius: 2px;
+                      animation: loadBar 2.5s cubic-bezier(0.4, 0, 0.2, 1) 1.4s forwards;
+                      position: relative;
+                      overflow: hidden;
+                    }
+                    .splash-loader-fill::after {
+                      content: '';
+                      position: absolute; inset: 0;
+                      background: linear-gradient(90deg, transparent, rgba(199, 165, 104, 1), transparent);
+                      animation: shimmer 1.8s infinite linear 1.4s;
+                      transform: translateX(-150%);
+                    }
                     
+                    /* PRZYCISK ZE ŚWIATŁEM (SWEEP) */
                     .splash-btn {
+                      position: relative; overflow: hidden;
                       background: rgba(23,23,23,0.95); color: white; border: none; 
-                      padding: clamp(14px, 2vw, 18px) clamp(36px, 6vw, 48px);
-                      font-size: clamp(0.65rem, 1.5vw, 0.75rem); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-                      cursor: pointer; border-radius: 6px; display: flex; align-items: center; gap: 12px;
+                      padding: 14px 32px;
+                      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+                      cursor: pointer; border-radius: 6px; display: flex; align-items: center; gap: 10px;
                       transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
                       box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
-                      opacity: 0; animation: fadeUp 1s ease-out 1.1s forwards;
+                      opacity: 0; animation: fadeUp 1s ease-out 1.5s forwards;
+                      z-index: 1;
+                      margin-top: 0.5rem;
                     }
+                    .splash-btn::before {
+                      content: '';
+                      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%);
+                      transform: translateX(-100%);
+                      transition: transform 0.6s ease;
+                      z-index: -1;
+                    }
+                    .splash-btn:hover::before { transform: translateX(100%); }
+                    
                     .splash-btn:hover { background: rgba(40,40,40,0.95); transform: translateY(-2px); box-shadow: 0 15px 40px -10px rgba(0,0,0,0.3); }
                     .splash-btn:active { transform: scale(0.97) translateY(0); }
                     .dark-mode .splash-btn { 
-                      background: rgba(255,255,255,0.07); 
-                      border: 1px solid rgba(255,255,255,0.1); 
+                      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); 
                       box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
                     }
                     .dark-mode .splash-btn:hover { background: rgba(255,255,255,0.12); box-shadow: 0 15px 40px -10px rgba(0,0,0,0.6); }
                     .splash-btn svg { width: 16px; height: 16px; transition: transform 0.3s; }
                     .splash-btn:hover svg { transform: translateX(4px); }
 
-                    /* THEME TOGGLE */
+                    /* --- PRZEŁĄCZNIK --- */
                     .splash-toggle-wrap { 
-                      position: absolute; top: clamp(20px, 4vh, 40px); left: 50%; transform: translateX(-50%); 
-                      z-index: 10; opacity: 0; animation: fadeUp 0.8s ease-out 1.4s forwards;
+                      position: absolute; top: 24px; left: 50%; transform: translateX(-50%); 
+                      z-index: 10; opacity: 0; animation: fadeUp 0.8s ease-out 1.8s forwards;
                     }
                     .splash-toggle {
                       width: 56px; height: 30px; border-radius: 999px; border: none; cursor: pointer;
@@ -186,6 +238,30 @@ export default function RootLayout({
                     .splash-thumb .icon-sun { display: block; width: 14px; height: 14px; color: #f59e0b; }
                     .dark-mode .splash-thumb .icon-sun { display: none; }
                     .dark-mode .splash-thumb .icon-moon { display: block; width: 12px; height: 12px; color: white; }
+
+                    /* --- RESPONSYWNE --- */
+                    @media (min-width: 640px) {
+                      .splash-content { gap: 1.5rem; max-width: 600px; }
+                      .splash-logo { width: 180px; }
+                      .splash-line-container { width: 160px; }
+                      .splash-headline { font-size: 1.35rem; }
+                      .splash-text { font-size: 0.75rem; letter-spacing: 0.2em; }
+                      .splash-btn { padding: 16px 40px; font-size: 0.7rem; gap: 12px; }
+                      .splash-loader { width: 100px; }
+                      .splash-bg { filter: blur(6px) brightness(0.9); }
+                    }
+
+                    @media (min-width: 1024px) {
+                      .splash-content { gap: 1.75rem; max-width: 700px; }
+                      .splash-logo { width: 220px; }
+                      .splash-line-container { width: 200px; }
+                      .splash-headline { font-size: 1.6rem; }
+                      .splash-text { font-size: 0.8rem; }
+                      .splash-btn { padding: 18px 48px; font-size: 0.75rem; gap: 14px; }
+                      .splash-loader { width: 120px; }
+                      .splash-bg { filter: blur(8px) brightness(0.9); }
+                      .dark-mode .splash-bg { filter: blur(10px) brightness(0.6); }
+                    }
                   </style>
 
                   <div class="splash-bg"></div>
@@ -203,9 +279,19 @@ export default function RootLayout({
                   <div class="splash-content">
                     <img src="/logos.svg" alt="Logo" class="splash-logo" draggable="false" />
                     <div class="splash-line-container"><div class="splash-line"></div></div>
-                    <p class="splash-text">Witajcie na stronie Komplex-Bud</p>
+                    
+                    <!-- CHWYTLIWY NAGŁÓWEK -->
+                    <h1 class="splash-headline">Solidność, precyzja i nowoczesne wykończenie.</h1>
+                    
+                    <!-- OPISOWY TEKST POWITALNY -->
+                    <p class="splash-text">Twój partner w kompleksowych realizacjach budowlanych najwyższej jakości.</p>
+
+                    <div class="splash-loader">
+                      <div class="splash-loader-fill"></div>
+                    </div>
+
                     <button class="splash-btn" onclick="closeSplash()">
-                      Wejdź
+                      Przejdź na stronę
                       <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                     </button>
                   </div>
@@ -232,7 +318,7 @@ export default function RootLayout({
                   el.classList.add('exiting');
                   document.documentElement.style.backgroundColor = ''; 
                   document.cookie = "complex_visited=true; path=/; max-age=" + (60*60*24*365);
-                  setTimeout(function() { el.remove(); }, 800); // Wydłużone do 0.8s dla lepszego efektu rozmycia
+                  setTimeout(function() { el.remove(); }, 800);
                 };
               })();
             `,
