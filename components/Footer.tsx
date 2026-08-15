@@ -10,7 +10,6 @@ const services = [
   { title: "Wykończenia pod klucz" },
   { title: "Remonty generalne" },
   { title: "Adaptacja wnętrz" },
-  { title: "Projektowanie wykonawcze" },
 ];
 
 const Footer = () => (
@@ -101,38 +100,54 @@ const Footer = () => (
             </h4>
             <div className="space-y-3 text-sm text-neutral-500 dark:text-neutral-500 font-light">
               <a
-                href="tel:+48123456789"
+                href="tel:+48792022994"
                 className="block hover:text-neutral-900 dark:hover:text-white transition-colors"
               >
-                +48 123 456 789
+                +48 792 022 994
               </a>
               <a
-                href="mailto:biuro@complexbud.pl"
+                href="mailto:Jan.komplexbud@gmail.com"
                 className="block hover:text-neutral-900 dark:hover:text-white transition-colors"
               >
-                biuro@complexbud.pl
+                Jan.komplexbud@gmail.com
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-neutral-200 dark:border-white/[0.04] py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-[0.65rem] text-neutral-400 dark:text-neutral-700 font-light tracking-wide transition-colors">
-          © {new Date().getFullYear()} Complex Bud. Wszelkie prawa zastrzeżone.
-        </p>
-        <div className="flex items-center gap-3">
-          <span className="text-[0.6rem] text-neutral-400 dark:text-neutral-700 tracking-[0.15em] uppercase font-light transition-colors">
-            Projekt & Programowanie
+      <div className="border-t border-neutral-200 dark:border-white/[0.04] py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+          <p className="text-[0.65rem] text-neutral-400 dark:text-neutral-700 font-light tracking-wide transition-colors">
+            © {new Date().getFullYear()} Komplex Bud
+          </p>
+          <span className="hidden sm:block w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-800" />
+          <a
+            href="/polityka-prywatnosci"
+            className="text-[0.65rem] text-neutral-400 dark:text-neutral-700 hover:text-neutral-900 dark:hover:text-white font-light tracking-wide transition-colors"
+          >
+            Polityka prywatności
+          </a>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="text-[0.65rem] text-neutral-400 dark:text-neutral-700 font-light tracking-wide transition-colors">
+            Realizacja:
           </span>
-          <div className="w-4 h-px bg-neutral-300 dark:bg-neutral-800" />
           <a
             href="https://klaudiuszdev.pl"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.6rem] text-neutral-500 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-[#C7A568] tracking-[0.25em] uppercase font-medium transition-colors duration-300"
+            className="group flex items-center gap-2 transition-all duration-300"
           >
-            klaudiuszdev
+            <img
+              src="https://klaudiuszdev.pl/hello.svg"
+              alt="klaudiuszdev"
+              className="h-4 w-auto"
+            />
+            <span className="text-[0.6rem] text-neutral-500 dark:text-neutral-600 group-hover:text-neutral-900 dark:group-hover:text-[#C7A568] tracking-[0.15em] uppercase font-medium transition-colors duration-300">
+              klaudiuszdev.pl
+            </span>
           </a>
         </div>
       </div>

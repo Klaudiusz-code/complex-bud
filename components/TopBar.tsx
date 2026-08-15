@@ -2,7 +2,6 @@ const TopBar = () => (
   <div className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#020202] border-b border-neutral-200 dark:border-white/[0.04] border-l-2 border-l-[#C7A568] transition-colors duration-300">
     <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-11 sm:h-12 flex items-center justify-between text-[0.72rem] tracking-wider">
       <div className="flex items-center gap-6 text-neutral-600 dark:text-neutral-400 font-medium">
-
         <span className="hidden md:flex items-center gap-2.5">
           <div className="w-[18px] h-[18px] rounded-[3px] bg-[#C7A568]/10 flex items-center justify-center">
             <svg
@@ -25,7 +24,7 @@ const TopBar = () => (
 
       <div className="flex items-center gap-4">
         <a
-          href="+48792022994"
+          href="tel:+48792022994"
           className="hidden sm:flex items-center gap-2.5 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors font-medium"
         >
           <div className="w-[18px] h-[18px] rounded-[3px] bg-[#C7A568]/10 flex items-center justify-center">

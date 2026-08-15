@@ -137,7 +137,7 @@ const Contact = ({ data }: ContactProps) => {
                   ),
                   label: "E-mail",
                   value: "Jan.komplexbud@gmail.com",
-                  href: "mailto:Jan.komplexbud@gmail.com",
+                  href: "mailto:jan.komplexbud@gmail.com",
                 },
                 {
                   icon: (

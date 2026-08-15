@@ -19,7 +19,6 @@ const Testimonials = ({ data }: TestimonialsProps) => {
       className="py-16 sm:py-20 lg:py-28 bg-neutral-50 dark:bg-[#0F0F0F] border-y border-neutral-200 dark:border-white/[0.06] transition-colors duration-300"
     >
       <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
-        {/* NAGŁÓWEK */}
         <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
           <span className="text-[0.65rem] sm:text-xs font-bold text-[#C7A568] tracking-[0.3em] uppercase">
             Opinie klientów
@@ -30,7 +29,6 @@ const Testimonials = ({ data }: TestimonialsProps) => {
           </h2>
         </div>
 
-        {/* OPINIE */}
         {testimonials.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
             {testimonials.map((testimonial, index) => {
@@ -46,7 +44,6 @@ const Testimonials = ({ data }: TestimonialsProps) => {
                   key={`${name}-${index}`}
                   className="bg-white dark:bg-white/[0.05] border border-neutral-200 dark:border-white/[0.08] backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:bg-neutral-50 dark:hover:bg-white/[0.08] hover:border-neutral-300 dark:hover:border-white/[0.12] transition-all duration-500 flex flex-col shadow-sm dark:shadow-none"
                 >
-                  {/* GWIAZDKI */}
                   <div className="flex gap-1 mb-6" aria-label="5 na 5 gwiazdek">
                     {[...Array(5)].map((_, i) => (
                       <svg
@@ -61,19 +58,17 @@ const Testimonials = ({ data }: TestimonialsProps) => {
                     ))}
                   </div>
 
-                  {/* TREŚĆ */}
                   <p className="text-neutral-600 dark:text-neutral-200 leading-relaxed mb-8 flex-1 font-light italic text-[0.85rem] sm:text-[0.95rem] transition-colors">
                     „{text}"
                   </p>
 
-                  {/* AUTOR */}
                   <div className="pt-6 border-t border-neutral-200 dark:border-white/[0.08]">
                     <div className="font-semibold text-neutral-900 dark:text-white text-sm transition-colors">
                       {name}
                     </div>
 
                     <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 font-medium transition-colors">
-                      Klient Complex Bud
+                      Klient Komplex Bud
                     </div>
                   </div>
                 </div>
@@ -82,7 +77,6 @@ const Testimonials = ({ data }: TestimonialsProps) => {
           </div>
         )}
 
-        {/* BRAK OPINII */}
         {testimonials.length === 0 && (
           <div className="text-center text-sm text-neutral-500 dark:text-neutral-400">
             Opinie klientów pojawią się tutaj.

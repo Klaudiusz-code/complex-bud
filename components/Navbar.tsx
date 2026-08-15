@@ -22,7 +22,7 @@ const Navbar = () => {
           <img
             src="/logos.svg"
             alt="Komplex Bud"
-            className="h-8 lg:h-9 xl:h-12 transition-transform duration-300 group-hover:scale-105"
+            className="h-9 xl:h-12 transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
